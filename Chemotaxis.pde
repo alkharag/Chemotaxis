@@ -22,13 +22,16 @@ Bacteria [] colony;
  		colony[i].follow();
 
  	}
+ }  
+ void mousePressed()
+ {
  	if(mousePressed == true && followMouse == false && (mouseButton == LEFT)){
  		followMouse = true;
  	}else if(mousePressed == true && followMouse == true && (mouseButton == LEFT))
  	{
  		followMouse = false;
  	}
- }  
+ }
 
  class Bacteria    
  {     
