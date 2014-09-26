@@ -38,11 +38,18 @@ Bacteria [] colony;
  		colony[i].follow();
 
  	}
+ 	if(followMouse == true)
+ 	{
+ 		fill(0, 255, 0);
+ 		ellipse(mouseX, mouseY, 10, 10);
+ 	}
+ 		
  }  
  public void mousePressed()
  {
  	if(mousePressed == true && followMouse == false && (mouseButton == LEFT)){
  		followMouse = true;
+ 		
  	}else if(mousePressed == true && followMouse == true && (mouseButton == LEFT))
  	{
  		followMouse = false;
@@ -86,7 +93,7 @@ Bacteria [] colony;
  	}
  	public void follow()
  	{
- 		if (followMouse == true)
+ 		if (followMouse == true && get(bacX,bacY) != color(0,255,0))
  		{
  			if(bacX > mouseX){
  				bacX = bacX + (int)(Math.random()*(-5)+1);
@@ -99,7 +106,11 @@ Bacteria [] colony;
  				bacY = bacY + (int)(Math.random()*(5)-1);
  			}	
  		}
- 		
+ 		if(followMouse == true && get(bacX,bacY) == color(0,255,0))
+ 		{
+ 			followMouse = false;
+ 		}
+
  	}
 
  }    
